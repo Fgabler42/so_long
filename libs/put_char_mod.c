@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libs.h                                             :+:      :+:    :+:   */
+/*   put_char_mod.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
+/*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 21:20:23 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/15 16:47:45 by fgabler          ###   ########.fr       */
+/*   Created: 2023/05/13 12:29:47 by fgabler           #+#    #+#             */
+/*   Updated: 2023/07/23 19:56:17 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBS
-# define LIBS
+#include "libft.h"
 
-# include "ft_printf/Include/ft_printf.h"
-# include "get_next_line/include/get_next_line.h"
-# include "libft/libft.h"
-
-
-#endif
-
+void	put_char_mod(char _restrict_, int *ret_len)
+{
+	*ret_len += write(1, &_restrict_, 1);
+}

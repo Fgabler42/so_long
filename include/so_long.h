@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
+/*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/15 16:12:42 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/24 11:10:36 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define SO_LONG_H
 
 //LIBARYS
-# include "../libs/libs.h"
-# include <fcntl.h>
-
+# include "../libs/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
 
 //STRUCTS
@@ -25,8 +23,5 @@ typedef struct GameItems
     mlx_t   *pointerToWindow;
     char    **map_input;
 }   game_items;
-
-
-int check_map (int av, char **ac);
 
 #endif

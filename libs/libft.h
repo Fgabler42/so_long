@@ -6,17 +6,25 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:56:04 by fgabler           #+#    #+#             */
-/*   Updated: 2023/04/12 15:40:37 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/23 19:29:00 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #	ifndef LIBFT_H
 # define LIBFT_H
 
+/* get_next_line */
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdint.h>
+# include <limits.h>
+# include <fcntl.h>
+# include <stddef.h>
 
 typedef struct s_list
 {
@@ -24,7 +32,7 @@ typedef struct s_list
 	struct s_list		*next;
 }	t_list;
 
-/* libc */
+/* libft */
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -73,5 +81,20 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/* ft_printf */
+int			ft_printf(const char *_restrict_, ...);
+void		put_char_mod(char _restrict_, int *ret_len);
+void		ft_print_hex(unsigned int num, const char format, int *ret_len);
+void		ft_print_str(const char *ret_from_arg, int *ret_len);
+void		ft_print_ptr(unsigned long int num, int *ret_len);
+void		ft_print_num(int ret_from_arg, int *ret_len);
+void		ft_print_uns(unsigned int ret_from_arg, int *ret_len);
+
+
+/* get_next_line */
+char	*ft_strjoin_mod(char *s1, char *s2);
+char	*get_next_line(int fd);
+
 
 #endif

@@ -1,40 +1,43 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/07 14:50:03 by fgabler           #+#    #+#              #
-#    Updated: 2023/07/15 07:30:42 by fgabler          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME := so_long
-CFLAGS = -Wall -Wextra -Werror
+
 CC = cc
-MLXFLAGS = -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/opt/homebrew/Cellar/glfw/3.3.8/lib/"
+CFLAGS = -Wall -Wextra -Werror
+MLXFLAGS = -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"$(HOME)/homebrew/Cellar/glfw/3.3.8/lib/"
+AR		 = ar rcs
+RM		 = rm -rf
+#FSANITIZE = -fsanitize=address -g
 
 SRC = so_long.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRC:.c=.o)
 
-all: MLX42 $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJS)
-	@$(MAKE) -C ./libs
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) ./libs/libs.a ./MLX42/build/libmlx42.a $(MLXFLAGS)
+LIBFT =	./libs/libs.a
+MLX42 =	./MLX42/build/libmlx42.a
 
-MLX42:
-	@if [ ! -d "MLX42" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi
-	@cd MLX42 && cmake -B build && cmake --build build -j4
+$(NAME):	$(LIBFT) $(MLX42) $(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) $(FSANITIZE) $(MLX42) $(LIBFT) -o $(NAME) $(MLXFLAGS)
+
+$(LIBFT):
+			@cd libs && make && make clean
+
+$(MLX42):
+			@if [ ! -d "MLX42" ]; then git clone https://github.com/codam-coding-college/MLX42.git; fi
+			@cd MLX42 && cmake -B build && cmake --build build -j4
 
 clean:
-	@rm -rf MLX42
-	@cd libs && make fclean
-	@rm -f $(OBJS)
+			@rm -f $(OBJS)
 
-fclean: clean
-	@rm -f $(NAME)
+
+fclean:		clean
+			@rm -f $(NAME)
+			@rm -rf MLX42
+			@rm -rf ./libs/libft.a
 
 re: fclean all
+
+libft: $(LIBFT)
+mlx: $(MLX42)
+
+.PHONY: all clean fclean re

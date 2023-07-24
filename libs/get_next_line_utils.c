@@ -6,11 +6,11 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:26:06 by fritzgabler       #+#    #+#             */
-/*   Updated: 2023/07/14 18:58:59 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/23 19:57:04 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/get_next_line.h"
+#include "libft.h"
 
 // ft_strchr: is a function that takes two arguments: a pointer
 // to the string str, and an integer c that represents

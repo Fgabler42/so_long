@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_char_mod.c                                     :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/13 12:29:47 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/04 18:13:08 by fgabler          ###   ########.fr       */
+/*   Created: 2023/05/13 19:27:30 by fritzgabler       #+#    #+#             */
+/*   Updated: 2023/07/23 19:54:48 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Include/ft_printf.h"
+#include "libft.h"
 
-void	put_char_mod(char _restrict_, int *ret_len)
+void	ft_print_str(const char *ret_from_arg, int *ret_len)
 {
-	*ret_len += write(1, &_restrict_, 1);
+	int	i;
+
+	i = 0;
+	if (ret_from_arg == NULL)
+	{
+		*ret_len += write(1, "(null)", 6);
+		return ;
+	}
+	while (ret_from_arg[i])
+		put_char_mod(ret_from_arg[i++], ret_len);
 }
