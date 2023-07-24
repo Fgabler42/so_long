@@ -5,37 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/24 15:01:44 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/24 15:01:55 by fgabler          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/15 16:55:32 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/24 18:08:08 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 
+char    *get_input(char *PathToFile);
 void    free_allocated_array (char **array);
 int check_file_type(char *input);
 
 int check_map (int av, char **ac)
 {
     char    *map_input;
+	int	a;
 
-    if (check_file_type(*ac))
-        return(1);
-    map_input =    
-    if (check_if_map_is_rectangular())
+	a = av;
+
+    if (check_file_type(ac[1]))
+	{
+		return(1);
+	}
+	ft_printf("%d", check_file_type(ac[1]));
+    map_input = get_input(*ac);
     return (0); 
 }
 
@@ -75,12 +69,8 @@ void    free_allocated_array (char **array)
 
 char    *get_input(char *PathToFile)
 {
-    int i;
     int file_discriptor;
-    char **store_map_input;
-    file_discriptor = fopen(PathToFile, O_RDONLY);
-    while (get_next_line())
-    store_map_input = 
-    
-
+//    char **store_map_input;
+    file_discriptor = open(PathToFile, O_RDONLY);
+	return ("hello");
 }
