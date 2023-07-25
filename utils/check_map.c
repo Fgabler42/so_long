@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/25 17:28:18 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/25 20:08:28 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int check_map (int arguments, char **string_of_arguments)
 		return (1);
     if (check_file_type(string_of_arguments))
 		return(1);
-	mapInput = getMapInput();
+	mapInput = getMapInput(string_of_arguments[1]);
+    (void) mapInput;
     return (0); 
 }
 
@@ -39,23 +40,23 @@ int check_file_type(char **string_of_arguments)
 
 char    *getMapInput(char *PathToFile)
 {
-	int	i;
     int	file_discriptor;
-    char	**storeMapInput;
+    //char    **mapMatrix;
+    char	*storeMapInput;
 	char	*storeLineInput;
 
-
-	i = 0;
     file_discriptor = open(PathToFile, O_RDONLY);
 	if(file_discriptor < 0)
 		return(NULL);
 	storeLineInput = get_next_line(file_discriptor);
 	while(storeLineInput != NULL)
 	{
-		storeMapInput[i] = ft_strjoin_mod(storeMapInput[i], storeLineInput);
+		storeMapInput = ft_strjoin_mod(storeMapInput, storeLineInput);
 		free(storeLineInput);
 		storeLineInput = get_next_line(file_discriptor);
-		i++;
+        if (storeLineInput == NULL)
+            break ;
 	}
-	return ();
+    ft_printf("%s", storeMapInput);
+	return ("hello");
 }
