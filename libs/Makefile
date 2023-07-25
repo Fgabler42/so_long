@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-NAME = libft
+NAME = libs
 
 LIBFTSRCS = ./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c ./ft_isalpha.c \
 	./ft_isascii.c ./ft_isdigit.c ./ft_isprint.c ./ft_itoa.c ./ft_memchr.c \
@@ -12,13 +12,13 @@ LIBFTSRCS = ./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c ./ft_isalpha.c
 
 LIBFT_OBJS = $(LIBFTSRCS:.c=.o)
 
-PRINTFSRCS = ./ft_printf.c ./ft_print_hex.c ./ft_print_ptr.c \
-			 ./ft_print_uns.c ./ft_print_str.c ./put_char_mod.c \
-			 ./ft_print_num.c 
+PRINTFSRCS = ./ft_printf/ft_printf.c ./ft_printf/ft_print_hex.c ./ft_printf/ft_print_ptr.c \
+			 ./ft_printf/ft_print_uns.c ./ft_printf/ft_print_str.c ./ft_printf/put_char_mod.c \
+			 ./ft_printf/ft_print_num.c 
 
 PRINTFOBJS = $(PRINTFSRCS:.c=.o)
 
-GNLSRCS = ./get_next_line.c ./get_next_line_utils.c
+GNLSRCS = ./gnl/get_next_line.c ./gnl/get_next_line_utils.c
 
 GNLOBJS = $(GNLSRCS:.c=.o)
 
