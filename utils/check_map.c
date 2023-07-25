@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/25 20:08:28 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/25 22:34:38 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ char    *getMapInput(char *PathToFile)
 	storeLineInput = get_next_line(file_discriptor);
 	while(storeLineInput != NULL)
 	{
+        ft_printf("worked  \n");
 		storeMapInput = ft_strjoin_mod(storeMapInput, storeLineInput);
+        ft_printf("\n %s\n", storeMapInput);
 		free(storeLineInput);
 		storeLineInput = get_next_line(file_discriptor);
         if (storeLineInput == NULL)
             break ;
 	}
-    ft_printf("%s", storeMapInput);
 	return ("hello");
 }
