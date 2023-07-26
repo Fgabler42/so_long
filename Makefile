@@ -2,7 +2,7 @@ NAME := so_long
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-MLXFLAGS = -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"$(HOME)/homebrew/Cellar/glfw/3.3.8/lib/"
+MLXFLAGS = -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(shell whoami)/homebrew/Cellar/glfw/3.3.8/lib"
 AR		 = ar rcs
 RM		 = rm -rf
 #FSANITIZE = -fsanitize=address -g
@@ -15,7 +15,7 @@ OBJS = $(SRC:.c=.o)
 
 all: $(NAME)
 
-LIBFT =	./libs/libs.a
+LIBFT =	./libs/libs
 MLX42 =	./MLX42/build/libmlx42.a
 
 $(NAME):	$(LIBFT) $(MLX42) $(OBJS)
