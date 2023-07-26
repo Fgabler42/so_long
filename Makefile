@@ -9,7 +9,7 @@ RM		 = rm -rf
 
 VPATH := utils
 
-SRC = so_long.c check_map.c
+SRC = so_long.c check_map.c map_ingredients_check.c
 
 OBJS = $(SRC:.c=.o)
 

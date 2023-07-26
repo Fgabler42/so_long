@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/26 19:25:19 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/26 16:29:31 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static char    **get_map_input(char *path_to_file);
 static int check_file_type(char **string_of_arguments);
 static int	is_map_rectangle(char **map);
-void free_arr(char **arr);
 
 char **check_map (int arguments, char **string_of_arguments)
 {
@@ -26,12 +25,10 @@ char **check_map (int arguments, char **string_of_arguments)
 		return (ft_printf("%swrong filetype\n", RED), NULL);
 	map_input = get_map_input(string_of_arguments[1]);
 	if (map_input == NULL)
-		return (ft_printf("%smap isn't valide\n", RED), NULL);
+		return (ft_printf("map isn't valide\n"), NULL);
 	if (is_map_rectangle(map_input))
-		return (ft_printf("%smap isn't a rectangel\n", RED), free_arr(map_input), NULL);
-	if (check_walls(map_input))
-		return (ft_printf("%swalls are not set proper\n", RED), free_arr(map_input), NULL);
-	return (0);
+		return (ft_printf("map isn't a rectangel\n"), free(map_input), NULL);
+	return (0); 
 }
 
 static int check_file_type(char **string_of_arguments)
@@ -83,15 +80,3 @@ static int	is_map_rectangle(char **map)
 	}
 	return (0);
 }
-
-void free_arr(char **arr)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (arr[i] != NULL)
-		free(arr[i++]);
-	free(arr);
-}
-
-
