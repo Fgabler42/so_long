@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/26 19:25:19 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/27 11:42:44 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,18 @@ char **check_map (int arguments, char **string_of_arguments)
 {
 	char	**map_input;
 	if (arguments != 2)
-		return (ft_printf("more or less then 2 arguments\n"), NULL);
+		return (ft_printf("%sMore or less then 2 arguments. Input one .ber file!\n", RED), NULL);
 	if (check_file_type(string_of_arguments))
-		return (ft_printf("%swrong filetype\n", RED), NULL);
+		return (ft_printf("\n%sWRONG FILETYP!\nInput one .ber file!\n\n", RED), NULL);
 	map_input = get_map_input(string_of_arguments[1]);
 	if (map_input == NULL)
-		return (ft_printf("%smap isn't valide\n", RED), NULL);
+        return (print_map_and_error(map_input, "MAP ISNT'T VALIDE!\n"), NULL);
 	if (is_map_rectangle(map_input))
-		return (ft_printf("%smap isn't a rectangel\n", RED), free_arr(map_input), NULL);
+		return (print_map_and_error(map_input, "MAP ISN'T A RECTANGEL!\n"), free_arr(map_input), NULL);
 	if (check_walls(map_input))
-		return (ft_printf("%swalls are not set proper\n", RED), free_arr(map_input), NULL);
+		return (print_map_and_error(map_input, 
+                    "WALLS ARE NOT PROPER SET!\nSet a 1 at every outline!\n"), 
+                free_arr(map_input), NULL);
 	return (0);
 }
 
