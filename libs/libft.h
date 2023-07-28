@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:56:04 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/23 19:29:00 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/28 13:25:37 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+int	count_doupple_arry_quantity(char **array);
 
 /* additional */
 char	*ft_substr(const char *s, unsigned int start, size_t len);
@@ -83,18 +84,16 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* ft_printf */
-int			ft_printf(const char *_restrict_, ...);
-void		put_char_mod(char _restrict_, int *ret_len);
-void		ft_print_hex(unsigned int num, const char format, int *ret_len);
-void		ft_print_str(const char *ret_from_arg, int *ret_len);
-void		ft_print_ptr(unsigned long int num, int *ret_len);
-void		ft_print_num(int ret_from_arg, int *ret_len);
-void		ft_print_uns(unsigned int ret_from_arg, int *ret_len);
-
+int		ft_printf(const char *_restrict_, ...);
+void	put_char_mod(char _restrict_, int *ret_len);
+void	ft_print_hex(unsigned int num, const char format, int *ret_len);
+void	ft_print_str(const char *ret_from_arg, int *ret_len);
+void	ft_print_ptr(unsigned long int num, int *ret_len);
+void	ft_print_num(int ret_from_arg, int *ret_len);
+void	ft_print_uns(unsigned int ret_from_arg, int *ret_len);
 
 /* get_next_line */
 char	*ft_strjoin_mod(char *s1, char *s2);
 char	*get_next_line(int fd);
-
 
 #endif

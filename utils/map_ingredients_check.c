@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:42:59 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/26 19:13:28 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/28 13:53:33 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ int	check_walls(char **map)
 	i = 0;
 	line_amount = 0;
 	line_len = ft_strlen(map[0]);
-	while (map[line_amount])
-		line_amount++;
-	line_amount--;
+	line_amount = count_doupple_arry_quantity(map);
 	while (i < line_len)
 	{
 		if (map[0][i] != '1' || map[line_amount][i] != '1')
@@ -55,3 +53,25 @@ int	check_walls(char **map)
 	return (0);
 }
 
+int	count_component_quantity(char **map, char component)
+{
+	int	component_quantity;
+	int	amount_line;
+	int	i;
+
+	component_quantity = 0;
+	amount_line = count_doupple_arry_quantity(map);
+	while (amount_line)
+	{
+		i = 0;
+		while (map[amount_line][i])
+		{
+			if (map[amount_line][i] == component)
+				component_quantity++;
+			i++;
+		}
+		amount_line--;
+	}
+	ft_printf("%d", component_quantity);
+	return (component_quantity);
+}

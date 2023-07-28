@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/27 11:08:27 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/28 16:10:12 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 #define WHITE		"\x01\033[0m\x02"
 #define ORANGE		"\x01\033[38;2;255;165;0m\x02"
 
+#define SIZE = 50;
+
 //LIBARYS
 # include "../libs/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
@@ -29,9 +31,18 @@
 //STRUCTS
 typedef struct GameItems
 {
-    mlx_t   *pointerToWindow;
-    char    **map_input;
-}   game_items;
+	mlx_t					*pointerToWindow;
+    char					**map_input;
+	int						width;
+	int						height;
+	int						rumber_of_collectibles;
+	int						tmp;
+	int						moves;
+	mlx_image_t				*pacman;
+	mlx_image_t				*collectible;
+	mlx_image_t				*wall;
+	mlx_image_t				*space;
+}   t_game_items;
 
 char **check_map (int arguments, char **string_of_arguments);
 int	check_for_two_newlines(char *mapInput);
