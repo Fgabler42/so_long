@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_map_and_error.c                              :+:      :+:    :+:   */
+/*   copy_dubble_array.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/26 19:19:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/29 16:18:21 by fgabler          ###   ########.fr       */
+/*   Created: 2023/07/29 10:47:56 by fgabler           #+#    #+#             */
+/*   Updated: 2023/07/29 20:50:21 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "libft.h"
 
-void	print_map_and_error(char **map, char *str)
+char	**copy_dubble_array(char **array)
 {
-	int	i;
+	int		y;
+	char	**new_array;
 
-	i = 0;
-    ft_printf("\n%s", RED);
-	while (map[i] != NULL)
-        ft_printf("%s\n", map[i++]);
-    ft_printf("\n%s\n", str);
+	y = 0;
+	new_array = malloc(sizeof(array) * sizeof(*array));
+	while (array[y] != NULL)
+	{
+		new_array[y] = ft_strdup(array[y]);
+		y++;
+	}
+	new_array[y] = NULL;
+	return (new_array);
 }
-

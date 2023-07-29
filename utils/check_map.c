@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/27 11:42:44 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/29 19:33:03 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static char    **get_map_input(char *path_to_file);
 static int check_file_type(char **string_of_arguments);
 static int	is_map_rectangle(char **map);
-void free_arr(char **arr);
+void free_dubble_array(char **arr);
 
 char **check_map (int arguments, char **string_of_arguments)
 {
@@ -23,16 +23,18 @@ char **check_map (int arguments, char **string_of_arguments)
 	if (arguments != 2)
 		return (ft_printf("%sMore or less then 2 arguments. Input one .ber file!\n", RED), NULL);
 	if (check_file_type(string_of_arguments))
-		return (ft_printf("\n%sWRONG FILETYP!\nInput one .ber file!\n\n", RED), NULL);
+		return (ft_printf("\n%sWRONG FILETYPE!\nInput one .ber file!\n\n", RED), NULL);
 	map_input = get_map_input(string_of_arguments[1]);
 	if (map_input == NULL)
         return (print_map_and_error(map_input, "MAP ISNT'T VALIDE!\n"), NULL);
 	if (is_map_rectangle(map_input))
-		return (print_map_and_error(map_input, "MAP ISN'T A RECTANGEL!\n"), free_arr(map_input), NULL);
+		return (print_map_and_error(map_input, "MAP ISN'T A RECTANGEL!\n"), free_dubble_array(map_input), NULL);
 	if (check_walls(map_input))
 		return (print_map_and_error(map_input, 
                     "WALLS ARE NOT PROPER SET!\nSet a 1 at every outline!\n"), 
-                free_arr(map_input), NULL);
+                free_dubble_array(map_input), NULL);
+	if (validate_map_path(map_input))
+		return (print_map_and_error(map_input, "MAP PATH IS NOT VALIDE"), NULL);
 	return (0);
 }
 
@@ -85,15 +87,4 @@ static int	is_map_rectangle(char **map)
 	}
 	return (0);
 }
-
-void free_arr(char **arr)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (arr[i] != NULL)
-		free(arr[i++]);
-	free(arr);
-}
-
 

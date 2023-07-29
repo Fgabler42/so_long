@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:56:04 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/28 13:25:37 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/29 19:46:09 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
-int	count_doupple_arry_quantity(char **array);
+int		count_doupple_arry_quantity(char **array);
+void	free_dubble_array(char **arr);
+char	**copy_dubble_array(char **array);
 
 /* additional */
 char	*ft_substr(const char *s, unsigned int start, size_t len);

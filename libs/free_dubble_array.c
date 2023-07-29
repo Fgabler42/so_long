@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_map_and_error.c                              :+:      :+:    :+:   */
+/*   free_dubble_array.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/26 19:19:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/29 16:18:21 by fgabler          ###   ########.fr       */
+/*   Created: 2023/07/29 19:31:09 by fgabler           #+#    #+#             */
+/*   Updated: 2023/07/29 19:32:43 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "libft.h"
 
-void	print_map_and_error(char **map, char *str)
+void	free_dubble_array(char **arr)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-    ft_printf("\n%s", RED);
-	while (map[i] != NULL)
-        ft_printf("%s\n", map[i++]);
-    ft_printf("\n%s\n", str);
+	while (arr[i] != NULL)
+		free(arr[i++]);
+	free(arr);
 }
-

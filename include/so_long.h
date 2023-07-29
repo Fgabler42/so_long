@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/28 16:10:12 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/29 19:27:31 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ typedef struct GameItems
 	mlx_image_t				*space;
 }   t_game_items;
 
-char **check_map (int arguments, char **string_of_arguments);
-int	check_for_two_newlines(char *mapInput);
-int	check_walls(char **map);
+char	**check_map (int arguments, char **string_of_arguments);
+int		check_for_two_newlines(char *mapInput);
+int		check_walls(char **map);
 void	print_map_and_error(char **map, char *str);
+int		validate_map_path(char **map);
+int		is_component_in_map(char **map, char c);
 
 #endif

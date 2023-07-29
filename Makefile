@@ -2,14 +2,16 @@ NAME := so_long
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-MLXFLAGS = -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"/Users/$(shell whoami)/homebrew/Cellar/glfw/3.3.8/lib"
+USER = $(shell brew --prefix glfw)/lib/
+MLXFLAGS = -framework Cocoa -framework OpenGL -framework IOKit -Iinclude -lglfw -L"$(USER)"
 AR		 = ar rcs
 RM		 = rm -rf
 #FSANITIZE = -fsanitize=address -g
 
 VPATH := utils
 
-SRC = so_long.c check_map.c map_ingredients_check.c print_map_and_error.c
+SRC = so_long.c check_map.c map_ingredients_check.c print_map_and_error.c \
+		validate_map_path.c
 
 OBJS = $(SRC:.c=.o)
 

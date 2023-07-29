@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:42:59 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/28 13:53:33 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/29 21:06:16 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,22 @@ int	count_component_quantity(char **map, char component)
 	}
 	ft_printf("%d", component_quantity);
 	return (component_quantity);
+}
+
+int	is_component_in_map(char **map, char c)
+{
+	int x;
+	int	y;
+
+	y = -1;
+	while (map[++y] != NULL)
+	{
+		x = -1;
+		while (map[y][++x])
+		{
+			if (map[y][x] == c)
+				return (1);
+		}
+	}	
+	return (0);
 }
