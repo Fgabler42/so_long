@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/29 19:27:31 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/29 23:47:55 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,18 @@
 //STRUCTS
 typedef struct GameItems
 {
-	mlx_t					*pointerToWindow;
+	mlx_t					*ptr_to_window;
     char					**map_input;
 	int						width;
 	int						height;
-	int						rumber_of_collectibles;
+	int						number_of_collectibles;
 	int						tmp;
 	int						moves;
 	mlx_image_t				*pacman;
 	mlx_image_t				*collectible;
 	mlx_image_t				*wall;
 	mlx_image_t				*space;
+	mlx_image_t				*exit;
 }   t_game_items;
 
 char	**check_map (int arguments, char **string_of_arguments);
@@ -50,5 +51,8 @@ int		check_walls(char **map);
 void	print_map_and_error(char **map, char *str);
 int		validate_map_path(char **map);
 int		is_component_in_map(char **map, char c);
+int		check_number_of_component(char **array, char c);
+void	fill_map_with_components(t_game_items *game);
+int		game_start(char **map_input);
 
 #endif

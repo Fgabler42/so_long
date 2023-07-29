@@ -1,0 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_map_with_components.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/29 23:02:58 by fgabler           #+#    #+#             */
+/*   Updated: 2023/07/29 23:51:23 by fgabler          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../include/so_long.h"
+
+static void	fill_with_component(t_game_items *game, char c, mlx_image_t *img);
+
+void	fill_map_with_components(t_game_items *game)
+{
+	int		i;
+	int		j;
+	int		x;
+	int		y;
+
+	i = -1;
+	y = 0;
+	while (game->map_input[++i] != NULL)
+	{
+		j = -1;
+		x = 0;
+		while (game->map_input[i][++j])
+		{
+			mlx_image_to_window(game->ptr_to_window, game->space, x, y);
+			x += 60;
+		}
+		y += 60;
+	}
+	fill_with_component(game, '1', game->wall);
+	fill_with_component(game, 'C', game->collectible);
+	fill_with_component(game, 'P', game->pacman);
+	fill_with_component(game, 'E', game->exit);
+}
+
+static void	fill_with_component(t_game_items *game, char c, mlx_image_t *img)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (game->map_input[++i] != NULL)
+	{
+		j = -1;
+		while (game->map_input[i][++j])
+		{
+			if (game->map_input[i][j] == c)
+				mlx_image_to_window(game->ptr_to_window, img, j * 60, i * 60);
+		}
+	}
+}
