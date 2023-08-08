@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/08 13:38:17 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/08 18:51:15 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,7 @@ int		is_component_in_map(char **map, char c);
 int		check_number_of_component(char **array, char c);
 void	fill_map_with_components(t_game_items *game);
 int		game_start(char **map_input);
+void	hook_funktions(void *game);
+int	walls_up(t_game_items *game);
 
 #endif

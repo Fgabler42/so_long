@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:55:24 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/08 14:33:19 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/08 18:22:13 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	game_start(char **map_input)
 		return (ft_printf("%s\n", mlx_strerror(mlx_errno), 0));
 	get_images(game);
 	fill_map_with_components(game);
+	mlx_put_string(game->ptr_to_window, "Move Counter: ", 0, 0);
+	mlx_loop_hook(game->ptr_to_window, hook_funktions, game);
 	mlx_loop(game->ptr_to_window);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 23:02:58 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/08 14:28:56 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/08 18:30:46 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ static void	fill_with_component(t_game_items *game, char c, mlx_image_t *img)
 		{
 			if (game->map_input[y][x] == c)
 			{
-				ft_printf("y: %d\n", y);
-				ft_printf("x: %d\n", x);
 				mlx_image_to_window(game->ptr_to_window, img, x * 60, y * 60);
 			}
 			x++;
