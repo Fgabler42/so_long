@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/31 05:03:47 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/08 12:44:55 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char **check_map (int arguments, char **string_of_arguments)
                 free_dubble_array(map_input), NULL);
 	if (validate_map_path(map_input))
 		return (print_map_and_error(map_input, "MAP PATH IS NOT VALIDE"), NULL);
-	return (0);
+	return (map_input);
 }
 
 static int check_file_type(char **string_of_arguments)

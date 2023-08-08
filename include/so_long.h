@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/31 05:04:55 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/08 13:38:17 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct GameItems
 	mlx_image_t				*wall;
 	mlx_image_t				*space;
 	mlx_image_t				*exit;
+	mlx_texture_t			*texture;
 }   t_game_items;
 
 char	**check_map (int arguments, char **string_of_arguments);

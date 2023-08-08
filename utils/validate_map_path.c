@@ -6,14 +6,14 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:35:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/30 22:45:41 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/08 12:32:00 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 static void	get_player_position(char **map, int *x, int *y);
-static void	fill_map_to_check(char **copied_map, int x, int y);
+static void	fill_map_to_check(char **copied_map, int y, int x);
 static int	check_valid_path(char **copied_map);
 
 int	validate_map_path(char **map)
@@ -22,8 +22,8 @@ int	validate_map_path(char **map)
 	int		y;
 	char	**copied_array_to_check;
 
-	y = -1;
-	x = -1;
+	y = 0;
+	x = 0;
 	copied_array_to_check = malloc((1) * sizeof(char *));
 	get_player_position(map, &x, &y);
 	copied_array_to_check = copy_dubble_array(map);
@@ -35,18 +35,20 @@ int	validate_map_path(char **map)
 
 static void	get_player_position(char **map, int *x, int *y)
 {
-	while (map[++(*y)])
+	while (map[*y])
 	{
-		*x = -1;
-		while (map[*y][++(*x)])
+		*x = 0;
+		while (map[*y][*x])
 		{
 			if (map[*y][*x] == 'P')
 				return ;
+			(*x)++;
 		}
+		(*y)++;
 	}
 }
 
-static void	fill_map_to_check(char **copied_map, int x, int y)
+static void	fill_map_to_check(char **copied_map, int y, int x)
 {
 	if (copied_map[y][x] == '1' || copied_map[y][x] == 'F')
 		return ;
