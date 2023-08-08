@@ -6,16 +6,15 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/29 19:33:03 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/31 05:03:47 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 static char    **get_map_input(char *path_to_file);
-static int check_file_type(char **string_of_arguments);
+static int  check_file_type(char **string_of_arguments);
 static int	is_map_rectangle(char **map);
-void free_dubble_array(char **arr);
 
 char **check_map (int arguments, char **string_of_arguments)
 {
@@ -26,7 +25,7 @@ char **check_map (int arguments, char **string_of_arguments)
 		return (ft_printf("\n%sWRONG FILETYPE!\nInput one .ber file!\n\n", RED), NULL);
 	map_input = get_map_input(string_of_arguments[1]);
 	if (map_input == NULL)
-        return (print_map_and_error(map_input, "MAP ISNT'T VALIDE!\n"), NULL);
+        return (print_map_and_error(map_input, "MAP ISN'T VALIDE!\n"), NULL);
 	if (is_map_rectangle(map_input))
 		return (print_map_and_error(map_input, "MAP ISN'T A RECTANGEL!\n"), free_dubble_array(map_input), NULL);
 	if (check_walls(map_input))

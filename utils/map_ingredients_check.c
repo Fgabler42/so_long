@@ -6,20 +6,20 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:42:59 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/29 22:06:57 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/31 05:06:04 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	check_for_two_newlines(char *mapInput)
+int	check_for_two_newlines(char *map_input)
 {
 	int i;
 	
 	i = 0;
-	while (mapInput[i])
+	while (map_input[i])
 	{
-		if (mapInput[i] == '\n' && mapInput[i + 1] == '\n')
+		if (map_input[i] == '\n' && map_input[i + 1] == '\n')
 			return (1);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/29 23:47:55 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/07/31 05:04:55 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct GameItems
 }   t_game_items;
 
 char	**check_map (int arguments, char **string_of_arguments);
-int		check_for_two_newlines(char *mapInput);
+int		check_for_two_newlines(char *map_input);
 int		check_walls(char **map);
 void	print_map_and_error(char **map, char *str);
 int		validate_map_path(char **map);

@@ -10,9 +10,9 @@ RM		 = rm -rf
 
 VPATH := utils
 
-SRC = so_long.c check_map.c game_funktions.c game_funktions.c \
-	  fill_map_with_components.c print_map_and_error.c \
-	  map_ingredients_check.c validate_map_path.c
+SRC = ./so_long.c ./check_map.c ./game_funktions.c ./print_map_and_error.c \
+		./fill_map_with_components.c ./map_ingredients_check.c \
+		./validate_map_path.c
 
 
 
