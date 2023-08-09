@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 23:02:58 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/08 18:30:46 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/09 17:25:38 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	fill_map_with_components(t_game_items *game)
 	}
 	fill_with_component(game, '1', game->wall);
 	fill_with_component(game, 'C', game->collectible);
-	fill_with_component(game, 'P', game->pacman);
 	fill_with_component(game, 'E', game->exit);
+	fill_with_component(game, 'P', game->pacman);
 }
 
 static void	fill_with_component(t_game_items *game, char c, mlx_image_t *img)

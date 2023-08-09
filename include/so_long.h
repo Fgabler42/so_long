@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/08 18:51:15 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/09 19:54:02 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,28 @@
 //LIBARYS
 # include "../libs/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
+# include "stdio.h"
 
 //STRUCTS
 typedef struct GameItems
 {
 	mlx_t					*ptr_to_window;
     char					**map_input;
-	int						width;
-	int						height;
-	int						number_of_collectibles;
-	int						tmp;
-	int						moves;
+	unsigned int			width;
+	unsigned int			height;
+	unsigned int			number_of_collectibles;
+	unsigned int			tmp;
+	unsigned int			moves;
 	mlx_image_t				*pacman;
 	mlx_image_t				*collectible;
 	mlx_image_t				*wall;
 	mlx_image_t				*space;
 	mlx_image_t				*exit;
 	mlx_texture_t			*texture;
+	int						right_x;
+	int						left_x;
+	int						up_y;
+	int						down_y;
 }   t_game_items;
 
 char	**check_map (int arguments, char **string_of_arguments);
@@ -56,6 +61,7 @@ int		check_number_of_component(char **array, char c);
 void	fill_map_with_components(t_game_items *game);
 int		game_start(char **map_input);
 void	hook_funktions(void *game);
-int	walls_up(t_game_items *game);
+int		walls_check(t_game_items *game, int move_y, int move_x);
+void	hook_funktions2(struct mlx_key_data keyData, void *hand_over_struct);
 
 #endif
