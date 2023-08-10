@@ -38,7 +38,7 @@ clean:
 fclean:		clean
 			@rm -f $(NAME)
 			@rm -rf MLX42
-			@rm -rf ./libs/libft.a
+			@rm -rf ./libs/libs
 
 re: fclean all
 
