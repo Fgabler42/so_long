@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/09 19:54:02 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/10 19:06:44 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # include "stdio.h"
 
 //STRUCTS
-typedef struct GameItems
+typedef struct game_items
 {
 	mlx_t					*ptr_to_window;
     char					**map_input;
@@ -45,11 +45,15 @@ typedef struct GameItems
 	mlx_image_t				*space;
 	mlx_image_t				*exit;
 	mlx_texture_t			*texture;
+}	t_game_items;
+
+typedef struct box_possitions
+{
 	int						right_x;
 	int						left_x;
 	int						up_y;
 	int						down_y;
-}   t_game_items;
+}	t_box;
 
 char	**check_map (int arguments, char **string_of_arguments);
 int		check_for_two_newlines(char *map_input);
@@ -63,5 +67,7 @@ int		game_start(char **map_input);
 void	hook_funktions(void *game);
 int		walls_check(t_game_items *game, int move_y, int move_x);
 void	hook_funktions2(struct mlx_key_data keyData, void *hand_over_struct);
+void	collect_item(t_game_items *game);
+int		count_component_quantity(char **map, char component);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:35:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/08 12:32:00 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/10 18:15:42 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ int	validate_map_path(char **map)
 
 	y = 0;
 	x = 0;
-	copied_array_to_check = malloc((1) * sizeof(char *));
 	get_player_position(map, &x, &y);
 	copied_array_to_check = copy_dubble_array(map);
-	fill_map_to_check(copied_array_to_check, x, y);
+	fill_map_to_check(copied_array_to_check, y, x);
 	if (check_valid_path(copied_array_to_check))
 		return (free_dubble_array(copied_array_to_check), 1);
 	return (free_dubble_array(copied_array_to_check), 0);
