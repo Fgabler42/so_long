@@ -6,7 +6,7 @@
 /*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:42:59 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/31 05:06:04 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/11 14:43:38 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	count_component_quantity(char **map, char component)
 		}
 		amount_line--;
 	}
-	ft_printf("%d", component_quantity);
 	return (component_quantity);
 }
 
