@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_ingredients_check.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
+/*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:42:59 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/11 14:43:38 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/12 20:49:32 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_for_two_newlines(char *map_input)
 {
 	int i;
-	
+
 	i = 0;
 	while (map_input[i])
 	{
@@ -23,7 +23,7 @@ int	check_for_two_newlines(char *map_input)
 			return (1);
 		i++;
 	}
-	
+
 	return (0);
 }
 
@@ -36,7 +36,7 @@ int	check_walls(char **map)
 	i = 0;
 	line_amount = 0;
 	line_len = ft_strlen(map[0]);
-	line_amount = count_doupple_arry_quantity(map);
+	line_amount = count_doupple_arry_quantity(map) - 1;
 	while (i < line_len)
 	{
 		if (map[0][i] != '1' || map[line_amount][i] != '1')
@@ -60,7 +60,7 @@ int	count_component_quantity(char **map, char component)
 	int	i;
 
 	component_quantity = 0;
-	amount_line = count_doupple_arry_quantity(map);
+	amount_line = count_doupple_arry_quantity(map) - 1;
 	while (amount_line)
 	{
 		i = 0;
@@ -89,7 +89,7 @@ int	is_component_in_map(char **map, char c)
 			if (map[y][x] == c)
 				return (1);
 		}
-	}	
+	}
 	return (0);
 }
 

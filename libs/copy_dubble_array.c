@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   copy_dubble_array.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
+/*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:47:56 by fgabler           #+#    #+#             */
-/*   Updated: 2023/07/29 20:50:21 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/12 20:46:42 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**copy_dubble_array(char **array)
 	char	**new_array;
 
 	y = 0;
-	new_array = malloc(sizeof(array) * sizeof(*array));
+	new_array = malloc(sizeof(array) * count_doupple_arry_quantity(array));
 	while (array[y] != NULL)
 	{
 		new_array[y] = ft_strdup(array[y]);

@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/12 18:58:07 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/12 20:16:55 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,10 @@ static int	is_map_rectangle(char **map)
 static int	are_all_ingredients_in_map(char **map_input)
 {
 	if (is_component_in_map(map_input, 'C') < 1)
-		return (ft_printf("LESS THEN 1 COLLECTIBLE"), 1);
+		return (ft_printf("%sLESS THEN 1 COLLECTIBLE\n", RED), 2);
 	if (is_component_in_map(map_input, 'P') != 1)
-		return (ft_printf("MORE THEN 1 PLAYER"), 1);
+		return (ft_printf("%sMORE THEN 1 PLAYER\n", RED), 1);
 	if (is_component_in_map(map_input, 'E') != 1)
-		return (ft_printf("MORE  ORE LESS THEN 1 EXIT"), 1);
+		return (ft_printf("%sMORE  ORE LESS THEN 1 EXIT\n", RED), 1);
 	return (0);
 }
