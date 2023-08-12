@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/12 18:53:05 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/12 18:58:07 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ char	**check_map(int arguments, char **string_of_arguments)
 		return (ft_printf("%sMore or less then 2 arguments.\n", RED), NULL);
 	if (check_file_type(string_of_arguments))
 		return (ft_printf("\n%sWRONG FILETYPE!\n", RED), NULL);
-	if (are_all_ingredients_in_map(map_input))
-		return (ft_printf("%sNOT ALL INGREDIENTS IN MAP\n", RED), NULL);
 	map_input = get_map_input(string_of_arguments[1]);
 	if (map_input == NULL)
 		return (print_map_and_error(map_input, "MAP ISN'T VALIDE!\n"), NULL);
+	if (are_all_ingredients_in_map(map_input))
+		return (ft_printf("%sNOT ALL INGREDIENTS IN MAP\n", RED), NULL);
 	if (is_map_rectangle(map_input))
 		return (print_map_and_error(map_input, "MAP ISN'T A RECTANGEL!\n"),
 			free_dubble_array(map_input), NULL);
