@@ -3,53 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
+/*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/08 12:44:55 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/12 18:53:05 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static char    **get_map_input(char *path_to_file);
-static int  check_file_type(char **string_of_arguments);
+static char	**get_map_input(char *path_to_file);
+static int	check_file_type(char **string_of_arguments);
 static int	is_map_rectangle(char **map);
+static int	are_all_ingredients_in_map(char **map_input);
 
-char **check_map (int arguments, char **string_of_arguments)
+char	**check_map(int arguments, char **string_of_arguments)
 {
 	char	**map_input;
+
 	if (arguments != 2)
-		return (ft_printf("%sMore or less then 2 arguments. Input one .ber file!\n", RED), NULL);
+		return (ft_printf("%sMore or less then 2 arguments.\n", RED), NULL);
 	if (check_file_type(string_of_arguments))
-		return (ft_printf("\n%sWRONG FILETYPE!\nInput one .ber file!\n\n", RED), NULL);
+		return (ft_printf("\n%sWRONG FILETYPE!\n", RED), NULL);
+	if (are_all_ingredients_in_map(map_input))
+		return (ft_printf("%sNOT ALL INGREDIENTS IN MAP\n", RED), NULL);
 	map_input = get_map_input(string_of_arguments[1]);
 	if (map_input == NULL)
-        return (print_map_and_error(map_input, "MAP ISN'T VALIDE!\n"), NULL);
+		return (print_map_and_error(map_input, "MAP ISN'T VALIDE!\n"), NULL);
 	if (is_map_rectangle(map_input))
-		return (print_map_and_error(map_input, "MAP ISN'T A RECTANGEL!\n"), free_dubble_array(map_input), NULL);
+		return (print_map_and_error(map_input, "MAP ISN'T A RECTANGEL!\n"),
+			free_dubble_array(map_input), NULL);
 	if (check_walls(map_input))
-		return (print_map_and_error(map_input, 
-                    "WALLS ARE NOT PROPER SET!\nSet a 1 at every outline!\n"), 
-                free_dubble_array(map_input), NULL);
+		return (print_map_and_error(map_input,
+				"WALLS ARE NOT PROPER SET!\nSet a 1 at every outline!\n"),
+			free_dubble_array(map_input), NULL);
 	if (validate_map_path(map_input))
 		return (print_map_and_error(map_input, "MAP PATH IS NOT VALIDE"), NULL);
 	return (map_input);
 }
 
-static int check_file_type(char **string_of_arguments)
+static int	check_file_type(char **string_of_arguments)
 {
 	int	lengs_of_string;
-	
+
 	lengs_of_string = ft_strlen(string_of_arguments[1]);
-	if(ft_strncmp((string_of_arguments[1] + (lengs_of_string - 4)), ".ber", 4))
+	if (ft_strncmp((string_of_arguments[1] + (lengs_of_string - 4)), ".ber", 4))
 		return (1);
 	return (0);
 }
 
 static char	**get_map_input(char *path_to_file)
 {
-	int	file_discriptor;
+	int		file_discriptor;
 	char	**map_matrix;
 	char	*map_input;
 	char	*store_line_input;
@@ -75,10 +80,10 @@ static char	**get_map_input(char *path_to_file)
 
 static int	is_map_rectangle(char **map)
 {
-	int i;
+	int	i;
 
 	i = 1;
-	while(map[i] != NULL)
+	while (map[i] != NULL)
 	{
 		if (ft_strlen(map[0]) != ft_strlen(map[i]))
 			return (1);
@@ -87,3 +92,13 @@ static int	is_map_rectangle(char **map)
 	return (0);
 }
 
+static int	are_all_ingredients_in_map(char **map_input)
+{
+	if (is_component_in_map(map_input, 'C') < 1)
+		return (ft_printf("LESS THEN 1 COLLECTIBLE"), 1);
+	if (is_component_in_map(map_input, 'P') != 1)
+		return (ft_printf("MORE THEN 1 PLAYER"), 1);
+	if (is_component_in_map(map_input, 'E') != 1)
+		return (ft_printf("MORE  ORE LESS THEN 1 EXIT"), 1);
+	return (0);
+}
