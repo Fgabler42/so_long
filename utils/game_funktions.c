@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:55:24 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/13 14:14:03 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/13 21:14:43 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static t_game_items	*fill_struct(char **map_input)
 
 	game = malloc(sizeof(t_game_items));
 	game->width = ft_strlen(*map_input) * 60;
-	game->height = (count_doupple_arry_quantity(map_input) + 1) * 60;
+	game->height = (count_doupple_arry_quantity(map_input)) * 60;
 	game->number_of_collectibles = check_number_of_component(map_input, 'C');
 	game->moves = 0;
 	game->map_input = map_input;
