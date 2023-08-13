@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_funktions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgabler <mail@student.42heilbronn.de>      +#+  +:+       +#+        */
+/*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:55:24 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/11 14:34:19 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/13 14:14:03 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	game_start(char **map_input)
 		return (ft_printf("%s\n", mlx_strerror(mlx_errno), 0));
 	get_images(game);
 	fill_map_with_components(game);
-	mlx_put_string(game->ptr_to_window, "Move Counter: ", 0, 0);
 	mlx_loop_hook(game->ptr_to_window, hook_funktions, game);
 //	mlx_key_hook(game->ptr_to_window, hook_funktions2, game);
 	mlx_loop(game->ptr_to_window);

@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 06:52:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/11 16:29:14 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/13 14:11:10 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct game_items
 	mlx_image_t				*wall;
 	mlx_image_t				*space;
 	mlx_image_t				*exit;
+	mlx_image_t			*player_move_image;
 	mlx_texture_t			*texture;
 }	t_game_items;
 
@@ -56,7 +57,7 @@ typedef struct box_possitions
 	int						down_y;
 }	t_box;
 
-char	**check_map (int arguments, char **string_of_arguments);
+char	**check_map(int arguments, char **string_of_arguments);
 int		check_for_two_newlines(char *map_input);
 int		check_walls(char **map);
 void	print_map_and_error(char **map, char *str);
@@ -73,5 +74,6 @@ int		count_component_quantity(char **map, char component);
 int		is_packman_touching_box(t_box box_pacman, t_box box_collectible);
 void	get_smal_box(t_box *box, mlx_instance_t *instances);
 void	end_game(t_game_items *game, t_box pacman_box);
+void	show_moves(t_game_items *game);
 
 #endif

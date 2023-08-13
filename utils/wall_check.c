@@ -1,12 +1,11 @@
 /* ************************************************************************** */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   wall_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:29:04 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/10 18:35:04 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/13 11:19:35 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +34,7 @@ int	walls_check(t_game_items *game, int move_y, int move_x)
 	}
 	game->pacman->instances[0].x += move_x;
 	game->pacman->instances[0].y += move_y;
+	game->moves++;
 		return (0);
 	return (1);
 }

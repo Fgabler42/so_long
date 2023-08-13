@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:21:52 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/12 20:16:55 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/13 10:43:52 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ char	**check_map(int arguments, char **string_of_arguments)
 	if (map_input == NULL)
 		return (print_map_and_error(map_input, "MAP ISN'T VALIDE!\n"), NULL);
 	if (are_all_ingredients_in_map(map_input))
-		return (ft_printf("%sNOT ALL INGREDIENTS IN MAP\n", RED), NULL);
+		return (ft_printf("%sNOT ALL INGREDIENTS IN MAP.\n", RED), NULL);
 	if (is_map_rectangle(map_input))
-		return (print_map_and_error(map_input, "MAP ISN'T A RECTANGEL!\n"),
+		return (print_map_and_error(map_input, "MAP ISN'T A RECTANGEL.!\n"),
 			free_dubble_array(map_input), NULL);
 	if (check_walls(map_input))
 		return (print_map_and_error(map_input,
 				"WALLS ARE NOT PROPER SET!\nSet a 1 at every outline!\n"),
 			free_dubble_array(map_input), NULL);
 	if (validate_map_path(map_input))
-		return (print_map_and_error(map_input, "MAP PATH IS NOT VALIDE"), NULL);
+		return (print_map_and_error(map_input, "MAP PATH IS NOT VALIDE."), NULL);
 	return (map_input);
 }
 
@@ -95,10 +95,10 @@ static int	is_map_rectangle(char **map)
 static int	are_all_ingredients_in_map(char **map_input)
 {
 	if (is_component_in_map(map_input, 'C') < 1)
-		return (ft_printf("%sLESS THEN 1 COLLECTIBLE\n", RED), 2);
+		return (ft_printf("%sLESS THEN 1 COLLECTIBLE.\n", RED), 2);
 	if (is_component_in_map(map_input, 'P') != 1)
-		return (ft_printf("%sMORE THEN 1 PLAYER\n", RED), 1);
+		return (ft_printf("%sMORE THEN 1 PLAYER.\n", RED), 1);
 	if (is_component_in_map(map_input, 'E') != 1)
-		return (ft_printf("%sMORE  ORE LESS THEN 1 EXIT\n", RED), 1);
+		return (ft_printf("%sMORE ORE LESS THEN 1 EXIT.\n", RED), 1);
 	return (0);
 }
