@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 11:37:09 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/14 15:01:59 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/14 15:11:09 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ static int	check_file_type(char **string_of_arguments)
 static int	is_file_content_big_enough(char **map)
 {
 	if (count_doupple_arry_quantity(map) < 3
-		|| count_doupple_arry_quantity(map) > 22)
+		|| count_doupple_arry_quantity(map) > 22
+		|| ft_strlen(map[0]) > 42)
 		return (1);
 	return (0);
 }
