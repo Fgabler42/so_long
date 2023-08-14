@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 11:37:09 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/14 15:11:09 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/14 17:24:01 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int	check_file_type(char **string_of_arguments);
 static int	is_map_rectangle(char **map);
-static int	are_all_ingredients_in_map(char **map_input);
 static int	is_file_content_big_enough(char **map);
 
 char	**check_map(int arguments, char **string_of_arguments)
@@ -22,12 +21,12 @@ char	**check_map(int arguments, char **string_of_arguments)
 	char	**map_input;
 
 	if (arguments != 2)
-		return (ft_printf("%sMore or less then 2 arguments.\n", RED), NULL);
+		return (ft_printf("%sError\n!= 2 arguments.\n", RED), NULL);
 	if (check_file_type(string_of_arguments))
-		return (ft_printf("\n%sWRONG FILETYPE!\n", RED), NULL);
+		return (ft_printf("\n%sError\nWRONG FILETYPE!\n", RED), NULL);
 	map_input = get_map_input(string_of_arguments[1]);
 	if (map_input == NULL)
-		return (ft_printf("%sMAP ISN'T VALID!\n", RED), NULL);
+		return (ft_printf("%sError\nMAP ISN'T VALID!\n", RED), NULL);
 	if (is_file_content_big_enough(map_input))
 		return (print_map_and_error(map_input, "INVALID DIMENIONS"),
 			free_dubble_array(map_input), NULL);
@@ -76,16 +75,5 @@ static int	is_map_rectangle(char **map)
 			return (1);
 		i++;
 	}
-	return (0);
-}
-
-static int	are_all_ingredients_in_map(char **map_input)
-{
-	if (count_component_quantity(map_input, 'C') < 1)
-		return (ft_printf("%sLESS THEN 1 COLLECTIBLE.\n", RED), 2);
-	if (count_component_quantity(map_input, 'P') != 1)
-		return (ft_printf("%sMORE  OR LESS THEN 1 PLAYER.\n", RED), 1);
-	if (count_component_quantity(map_input, 'E') != 1)
-		return (ft_printf("%sMORE ORE LESS THEN 1 EXIT.\n", RED), 1);
 	return (0);
 }

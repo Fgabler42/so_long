@@ -14,7 +14,8 @@ VPATH := utils
 SRC = ./so_long.c end_game.c  show_movments.c ./check_map.c ./collect_items.c \
 	 	./get_map_input.c ./game_funktions.c ./hook_funktions.c \
 		./print_map_and_error.c ./fill_map_with_components.c \
-		./map_ingredients_check.c ./validate_map_path.c wall_check.c
+		./map_ingredients_check01.c ./validate_map_path.c wall_check.c \
+		./map_ingredients_check02.c
 
 OBJS = $(SRC:.c=.o)
 

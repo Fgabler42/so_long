@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:55:24 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/14 14:46:21 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/14 17:19:50 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	game_start(char **map_input)
 	game = fill_struct(map_input);
 	game->ptr_to_window = mlx_init(game->width, game->height, "so_long", 1);
 	if (game->ptr_to_window == NULL)
-		return (ft_printf("%s\n", mlx_strerror(mlx_errno), 0));
+		return (ft_printf("Error\n%s\n", mlx_strerror(mlx_errno), 0));
 	get_images(game);
 	fill_map_with_components(game);
 	mlx_loop_hook(game->ptr_to_window, hook_funktions, game);
