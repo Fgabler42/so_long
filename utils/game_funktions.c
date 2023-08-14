@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 13:55:24 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/13 21:14:43 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/14 14:46:21 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void			get_images(t_game_items *game);
 
 int	game_start(char **map_input)
 {
-	t_game_items *game;
+	t_game_items	*game;
 
 	game = fill_struct(map_input);
 	game->ptr_to_window = mlx_init(game->width, game->height, "so_long", 1);
@@ -26,14 +26,13 @@ int	game_start(char **map_input)
 	get_images(game);
 	fill_map_with_components(game);
 	mlx_loop_hook(game->ptr_to_window, hook_funktions, game);
-//	mlx_key_hook(game->ptr_to_window, hook_funktions2, game);
 	mlx_loop(game->ptr_to_window);
 	return (0);
 }
 
 static t_game_items	*fill_struct(char **map_input)
 {
-	t_game_items *game;
+	t_game_items	*game;
 
 	game = malloc(sizeof(t_game_items));
 	game->width = ft_strlen(*map_input) * 60;
@@ -53,7 +52,8 @@ static void	get_images(t_game_items *game)
 	game->wall = mlx_texture_to_image(game->ptr_to_window, game->texture);
 	mlx_delete_texture(game->texture);
 	game->texture = mlx_load_png("./img/collectible.png");
-	game->collectible = mlx_texture_to_image(game->ptr_to_window, game->texture);
+	game->collectible = mlx_texture_to_image(
+			game->ptr_to_window, game->texture);
 	mlx_delete_texture(game->texture);
 	game->texture = mlx_load_png("./img/pacman.png");
 	game->pacman = mlx_texture_to_image(game->ptr_to_window, game->texture);

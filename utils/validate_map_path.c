@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 10:35:43 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/12 20:47:04 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/14 11:47:05 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ int	validate_map_path(char **map)
 	y = 0;
 	x = 0;
 	get_player_position(map, &y, &x);
-	//print_map_and_error(map, "someting1");
 	copied_array_to_check = copy_dubble_array(map);
-	//print_map_and_error(copied_array_to_check, "someting2");
 	fill_map_to_check(copied_array_to_check, y, x);
 	if (check_valid_path(copied_array_to_check))
 		return (free_dubble_array(copied_array_to_check), 1);

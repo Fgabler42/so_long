@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 16:50:13 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/13 13:57:49 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/14 11:53:57 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	hook_funktions(void *hand_over_struct)
 {
-	t_game_items *game;
+	t_game_items	*game;
+
 	game = hand_over_struct;
 	if (mlx_is_key_down(game->ptr_to_window, MLX_KEY_ESCAPE))
 		mlx_close_window(game->ptr_to_window);
@@ -30,9 +31,10 @@ void	hook_funktions(void *hand_over_struct)
 	show_moves(game);
 }
 
-	void	hook_funktions2(struct mlx_key_data keyData, void *hand_over_struct)
+void	hook_funktions2(struct mlx_key_data keyData, void *hand_over_struct)
 {
-	t_game_items *game;
+	t_game_items	*game;
+
 	game = hand_over_struct;
 	if (keyData.key == MLX_KEY_ESCAPE)
 		mlx_close_window(game->ptr_to_window);
@@ -46,4 +48,3 @@ void	hook_funktions(void *hand_over_struct)
 		walls_check(game, 0, 5);
 	collect_item(game);
 }
-

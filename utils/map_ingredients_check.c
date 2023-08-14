@@ -6,7 +6,7 @@
 /*   By: fgabler <fgabler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 09:42:59 by fgabler           #+#    #+#             */
-/*   Updated: 2023/08/12 20:49:32 by fgabler          ###   ########.fr       */
+/*   Updated: 2023/08/14 13:36:46 by fgabler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 int	check_for_two_newlines(char *map_input)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (map_input[i])
 	{
-		if (map_input[i] == '\n' && map_input[i + 1] == '\n')
+		if ((map_input[i] == '\n' && map_input[i + 1] == '\n'))
 			return (1);
 		i++;
 	}
-
 	return (0);
 }
 
@@ -77,7 +76,7 @@ int	count_component_quantity(char **map, char component)
 
 int	is_component_in_map(char **map, char c)
 {
-	int x;
+	int	x;
 	int	y;
 
 	y = -1;
@@ -95,7 +94,7 @@ int	is_component_in_map(char **map, char c)
 
 int	check_number_of_component(char **array, char c)
 {
-	int x;
+	int	x;
 	int	y;
 	int	number_of_component;
 
@@ -112,4 +111,3 @@ int	check_number_of_component(char **array, char c)
 	}
 	return (number_of_component);
 }
-
